@@ -32,42 +32,13 @@ intelligent-scraper/
 
 ### 1. Clone/Setup Project
 ```bash
-cd "d:\Eman Folder\Projects\webscraping- big data\find scraping data"
+cd "d:\yourfolder\find scraping data"
 ```
 
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-
-### 3. Get OpenAI API Key
-- Visit: https://platform.openai.com/api-keys
-- Create a new API key
-- Copy the key (starts with `sk-`)
-
-### 4. Create .env File
-```bash
-# Copy template
-cp .env.example .env
-
-# Edit .env and add your API key:
-OPENAI_API_KEY=sk-your-actual-key-here
-```
-
-## Usage
-
-### Quick Test (No API Key Needed)
-Test all components without needing OpenAI API:
-```bash
-python test_components.py
-```
-
-This will:
-- ✓ Test configuration loading
-- ✓ Test HTML parsing
-- ✓ Test selector caching
-- ✓ Test Excel creation
-- ✓ Create sample Excel output with test data
 
 ### Run Full Scraper (Requires API Key)
 ```bash
@@ -142,21 +113,6 @@ WEBSITES = {
 }
 ```
 
-### LLM Model Selection
-In `config.py`:
-```python
-LLM_MODEL = 'gpt-4'  # Use GPT-4 for better accuracy
-LLM_MODEL = 'gpt-3.5-turbo'  # Use GPT-3.5 for speed/cost
-```
-
-### Scraper Settings
-Adjust in `config.py` SCRAPY_SETTINGS:
-```python
-'CONCURRENT_REQUESTS': 16,  # Parallel requests
-'DOWNLOAD_DELAY': 2,         # Delay between requests (seconds)
-'RETRY_TIMES': 3,            # Retry failed requests
-```
-
 ## Output Files
 
 ### Excel File: `output/scraped_products.xlsx`
@@ -176,76 +132,6 @@ Stores learned selectors:
   }
 }
 ```
-
-### Log File: `scraper.log`
-Detailed logs of scraper activity for debugging
-
-## Troubleshooting
-
-### Error: "Missing packages"
-Solution: Install requirements
-```bash
-pip install -r requirements.txt
-```
-
-### Error: "OPENAI_API_KEY not found"
-Solution: Create .env file with your API key:
-```bash
-cp .env.example .env
-# Edit .env and add your key
-```
-
-### No data being scraped
-1. Check if website structure changed
-2. Clear selector cache: `cache/learned_selectors.json`
-3. Check `scraper.log` for detailed errors
-4. Verify website is accessible
-
-### LLM Agent errors
-- Check API key is valid
-- Check API account has credits
-- Check internet connection
-- Try with fewer websites first
-
-## Performance Tips
-
-- **Speed**: Use `gpt-3.5-turbo` instead of `gpt-4`
-- **Accuracy**: Use `gpt-4` for complex layouts
-- **Requests**: Adjust `CONCURRENT_REQUESTS` (higher = faster but more load)
-- **Delay**: Reduce `DOWNLOAD_DELAY` if site allows
-
-## Security
-
-- Never commit `.env` file with real API keys
-- Use `.env.example` template for sharing
-- API keys are sensitive - keep them private
-- Don't share scraper logs with credentials
-
-## Legal Notice
-
-- Respect website robots.txt and terms of service
-- Don't overload servers with too many concurrent requests
-- Add appropriate User-Agent headers
-- Some websites may prohibit scraping - check their ToS
-- This tool is for educational purposes
-
-## Future Enhancements
-
-- [ ] Support for JavaScript-rendered content (Selenium)
-- [ ] OCR for image-based prices
-- [ ] Proxy rotation for large-scale scraping
-- [ ] Email notifications on completion
-- [ ] Database storage instead of just Excel
-- [ ] Web dashboard for monitoring
-- [ ] Support for more websites
-
-## Support
-
-For issues or improvements:
-1. Check the troubleshooting section
-2. Review `scraper.log` for error details
-3. Test with `test_components.py` first
-4. Verify website structure hasn't changed
 
 ## License
 
