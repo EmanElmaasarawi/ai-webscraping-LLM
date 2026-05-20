@@ -58,7 +58,7 @@ The system can:
 
 ### Try It Right Now (2 minutes)
 ```bash
-cd "d:\Eman Folder\Projects\webscraping- big data\find scraping data"
+cd "d:\your folder\find scraping data"
 python demo_scraper.py
 ```
 
