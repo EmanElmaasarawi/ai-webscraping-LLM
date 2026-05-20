@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# Scrapy
+.scrapy/
+
+# Logs
+*.log
+
+# VSCode
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Excel outputs
+output/
+*.xlsx
